@@ -1,6 +1,7 @@
 variables {
-  name                   = "smtest-v2"
+  name                   = "smtest-v3"
   random_password_length = 32
+  prevent_destroy        = true
 }
 
 run "valid_create_secrets_manager" {

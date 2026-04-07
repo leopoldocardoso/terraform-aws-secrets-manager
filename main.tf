@@ -3,9 +3,6 @@ resource "aws_secretsmanager_secret" "secret-manager" {
   description             = var.description
   recovery_window_in_days = var.recovery_window_in_days
   tags                    = local.common_tags
-  lifecycle {
-    prevent_destroy = var.prevent_destroy
-  }
 }
 
 resource "random_password" "random-passwd" {
