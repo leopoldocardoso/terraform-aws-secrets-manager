@@ -37,7 +37,6 @@ No modules.
 | <a name="input_description"></a> [description](#input\_description) | A Description of the secret | `string` | `""` | no |
 | <a name="input_name"></a> [name](#input\_name) | Friendly name of the new secret | `string` | n/a | yes |
 | <a name="input_override_special"></a> [override\_special](#input\_override\_special) | Supply your own list of special characters to use for string generation | `string` | `"!#$%&*()-_=+[]{}:?"` | no |
-| <a name="input_prevent_destroy"></a> [prevent\_destroy](#input\_prevent\_destroy) | Prevent the secret from being destroyed by Terraform. Recommended for production secrets | `bool` | `false` | no |
 | <a name="input_random_password_length"></a> [random\_password\_length](#input\_random\_password\_length) | The length of the generated random password | `number` | `32` | no |
 | <a name="input_recovery_window_in_days"></a> [recovery\_window\_in\_days](#input\_recovery\_window\_in\_days) | Number of days that AWS Secrets Manager waits before it can delete the secret. | `number` | `7` | no |
 | <a name="input_special"></a> [special](#input\_special) | Include special characters in the random password | `bool` | `true` | no |
