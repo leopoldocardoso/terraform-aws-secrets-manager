@@ -53,11 +53,6 @@ variable "prevent_destroy" {
   default     = false # ou true se quiser proteção
 }
 
-# variable "enable_rotation" {
-#   description = "Determines whether secret rotation is enabled"
-#   type        = bool
-#   default     = false
-# }
 
 variable "tags" {
   description = "A map of tags to assign to the secret"
