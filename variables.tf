@@ -47,13 +47,6 @@ variable "override_special" {
   default     = "!#$%&*()-_=+[]{}:?"
 }
 
-variable "prevent_destroy" {
-  description = "Prevent the secret from being destroyed by Terraform. Recommended for production secrets"
-  type        = bool
-  default     = false # ou true se quiser proteção
-}
-
-
 variable "tags" {
   description = "A map of tags to assign to the secret"
   type        = map(string)
