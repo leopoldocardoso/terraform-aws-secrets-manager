@@ -32,7 +32,7 @@ module "secret_tagged" {
 
   name        = "my-secret-production"
   description = "Production secret with custom tags"
-  
+
   tags = {
     Environment = "production"
     Application = "api-backend"
