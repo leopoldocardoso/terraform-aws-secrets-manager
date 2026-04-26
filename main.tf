@@ -4,7 +4,7 @@ resource "random_string" "secret_suffix" {
   upper   = false
 }
 resource "aws_secretsmanager_secret" "secret-manager" {
-  name                    = "${var.name}-${random_pet.secret_suffix.id}"
+  name                    = "${var.name}-${random_string.secret_suffix.result}"
   description             = var.description
   recovery_window_in_days = var.recovery_window_in_days
 }
