@@ -10,3 +10,15 @@ terraform {
     }
   }
 }
+
+provider "aws" {
+  region = "us-east-1"
+  default_tags {
+    tags = {
+      environment = "dsv"
+      project     = "linuxtips"
+      owner       = "leopoldo peixoto"
+      objective   = "finalproject"
+    }
+  }
+}
