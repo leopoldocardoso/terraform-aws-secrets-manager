@@ -1,5 +1,5 @@
 variables {
-  name                   = "smtest-v1"
+  name                   = "smtest"
   random_password_length = 32
   prevent_destroy        = true
 }
