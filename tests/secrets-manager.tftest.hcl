@@ -1,5 +1,5 @@
 variables {
-  name                   = "smtest-v6"
+  name                   = "smtest-v1"
   random_password_length = 32
   prevent_destroy        = true
 }
@@ -7,8 +7,8 @@ variables {
 run "valid_create_secrets_manager" {
   command = apply
   assert {
-    condition     = aws_secretsmanager_secret.secret-manager.name == var.name
-    error_message = "Invalid Name"
+    condition     = can(regex("^${var.name}-", aws_secretsmanager_secret.secret-manager.name))
+    error_message = "Secret name should start with the provided name prefix"
   }
   assert {
     condition     = random_password.random-passwd[0].length == var.random_password_length

@@ -1,8 +1,11 @@
+resource "random_pet" "secret_suffix" {
+  length    = 2
+  separator = "-"
+}
 resource "aws_secretsmanager_secret" "secret-manager" {
-  name                    = var.name
+  name                    = "${var.name}-${random_pet.secret_suffix.id}"
   description             = var.description
   recovery_window_in_days = var.recovery_window_in_days
-  # tags                    = local.common_tags
 }
 
 resource "random_password" "random-passwd" {
