@@ -1,8 +1,15 @@
+# Random suffix generator for unique secret names
+resource "random_string" "suffix" {
+  length  = 6
+  special = false
+  upper   = false
+}
+
 # Example 1: Basic secret with random password (default settings)
 module "secret_basic" {
   source = "../"
 
-  name        = "my-secret-basic"
+  name        = "my-secret-basic-${random_string.suffix.result}"
   description = "Basic secret with default settings"
 }
 
@@ -10,7 +17,7 @@ module "secret_basic" {
 module "secret_custom" {
   source = "../"
 
-  name                   = "my-secret-custom"
+  name                   = "my-secret-custom-${random_string.suffix.result}"
   description            = "Secret with custom password length and special characters"
   random_password_length = 64
   override_special       = "!@#$%"
@@ -20,7 +27,7 @@ module "secret_custom" {
 module "secret_manual" {
   source = "../"
 
-  name                    = "my-secret-manual"
+  name                    = "my-secret-manual-${random_string.suffix.result}"
   description             = "Secret without automatic password generation"
   create_random_password  = false
   recovery_window_in_days = 30
@@ -30,7 +37,7 @@ module "secret_manual" {
 module "secret_tagged" {
   source = "../"
 
-  name        = "my-secret-production"
+  name        = "my-secret-production-${random_string.suffix.result}"
   description = "Production secret with custom tags"
 
   tags = {
@@ -45,7 +52,7 @@ module "secret_tagged" {
 module "secret_no_special" {
   source = "../"
 
-  name                   = "my-secret-alphanumeric"
+  name                   = "my-secret-alphanumeric-${random_string.suffix.result}"
   description            = "Secret with alphanumeric password only"
   random_password_length = 48
   special                = false
