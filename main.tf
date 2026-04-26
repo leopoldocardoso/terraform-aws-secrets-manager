@@ -1,6 +1,7 @@
-resource "random_pet" "secret_suffix" {
-  length    = 2
-  separator = "-"
+resource "random_string" "secret_suffix" {
+  length  = 6
+  special = false
+  upper   = false
 }
 resource "aws_secretsmanager_secret" "secret-manager" {
   name                    = "${var.name}-${random_pet.secret_suffix.id}"
