@@ -47,10 +47,10 @@ variable "override_special" {
   default     = "!#$%&*()-_=+[]{}:?"
 }
 
-variable "tags" {
-  description = "A map of tags to assign to the secret"
-  type        = map(string)
-  default     = {}
-}
+# variable "tags" {
+#   description = "A map of tags to assign to the secret"
+#   type        = map(string)
+#   default     = {}
+# }
 
 

@@ -22,3 +22,4 @@ resource "aws_secretsmanager_secret_version" "secret-version" {
   secret_string = random_password.random-passwd[0].result
 }
 
+
