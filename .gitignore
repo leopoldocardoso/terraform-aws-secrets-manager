@@ -38,3 +38,6 @@ terraform.rc
 
 # Other files
 .terraform.lock.hcl
+
+# TODO and personal notes
+TODO.md

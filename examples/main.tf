@@ -55,7 +55,7 @@ module "secret_no_special" {
   name                   = "my-secret-alphanumeric-${random_string.suffix.result}"
   description            = "Secret with alphanumeric password only"
   random_password_length = 48
-  special                = false
+    special                = false
 }
 
 # Outputs to show the created secrets

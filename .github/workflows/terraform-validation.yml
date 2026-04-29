@@ -1,4 +1,4 @@
-name: Terraform Validation VPC Module
+name: Terraform Validation Secrets Manager Module
 run-name: ${{ github.actor }} iniciou a validação do módulo terraform
 
 on:
@@ -6,6 +6,13 @@ on:
     branches: [ main ]
 
 jobs:
+  lint:
+    name: Linter
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
   validate:
     name: Validar Módulo Terraform
     runs-on: ubuntu-latest
@@ -20,7 +27,7 @@ jobs:
 
       - name: Terraform Format Check
         id: fmt
-        run: terraform fmt --recursive
+        run: terraform fmt -check -recursive
         continue-on-error: true
 
       - name: Terraform Init
