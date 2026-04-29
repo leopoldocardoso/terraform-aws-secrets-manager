@@ -52,7 +52,7 @@ module "secret_tagged" {
 module "secret_no_special" {
   source = "../"
 
-  name                        = "my-secret-alphanumeric-${random_string.suffix.result}"
+  name                   = "my-secret-alphanumeric-${random_string.suffix.result}"
   description            = "Secret with alphanumeric password only"
   random_password_length = 48
   special                = false
