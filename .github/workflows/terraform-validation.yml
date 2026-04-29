@@ -12,23 +12,10 @@ jobs:
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
-
-  validate:
-    name: Validar Módulo Terraform
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: 1.9.0
-
-      - name: Terraform Format Check
-        id: fmt
-        run: terraform fmt -check -recursive
-        continue-on-error: false
 
       - name: Terraform Init
         id: init
@@ -37,6 +24,17 @@ jobs:
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
+
+      - name: Terraform Format Check
+        id: fmt
+        run: terraform fmt -check -recursive
+        continue-on-error: false
+
+      - name: Setup TF Linter
+        uses: terraform-linters/setup-tflint@v4
+
+      - name: Run TFLINT
+        run: tflint --init && tflint --recursive
 
       - name: Setup TFSec
         uses: aquasecurity/tfsec-action@v1.0.3
