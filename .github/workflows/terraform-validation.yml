@@ -53,6 +53,14 @@ jobs:
         with:
           soft_fail: true
 
+  TFTEST:
+    name: Terraform Teste
+    runs-on: ubunt-latest
+    needs: TFSec
+    steps:
+      - name: Terraform Init
+        id: init
+        run: terraform init -backend=false
       - name: Terraform Test
         id: test
         run: terraform test --verbose
