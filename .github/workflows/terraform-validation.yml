@@ -36,7 +36,19 @@ jobs:
       - name: Run TFLINT
         run: tflint --init && tflint --recursive
 
-      - name: Setup TFSec
+  TFSec:
+    name: Setup TFSec
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.14.0
+
+      - name: TFSec
         uses: aquasecurity/tfsec-action@v1.0.3
         with:
           soft_fail: true
